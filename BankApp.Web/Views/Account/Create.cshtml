@@ -1,0 +1,28 @@
+﻿@model AppUser
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-5">
+    <div class="col-6">
+        <h3>
+            User Information
+        </h3>
+        <p>
+            User Name : @Model.Name
+        </p>
+        <p>
+            User Surname : @Model.Surname
+        </p>
+        <p>
+            User's active account count : <getAccountCount app-user-id="@Model.Id"></getAccountCount>
+        </p>
+    </div>
+    <div class="col-6">
+        <h3>
+            Adding process
+        </h3>
+    </div>
+</div>
+
