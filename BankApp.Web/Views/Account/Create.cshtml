@@ -1,4 +1,4 @@
-﻿@model AppUser
+﻿@model AppUserModel
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,6 +23,20 @@
         <h3>
             Adding process
         </h3>
+        <form asp-action="Create" asp-controller="Account" method="post">
+            <input type="hidden" name="AppUserId" value="@Model.Id" />
+            <div class="mb-3">
+                <label for="AccountNumber">Acoount Number :</label>
+                <input type="number" name="AccountNumber" class="form-control" min="0" />
+            </div>
+            <div class="mb-3">
+                <label for="Balance">Balance :</label>
+                <input type="number" name="Balance" class="form-control" min="0" />
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Save</button>
+            </div>
+        </form>
     </div>
 </div>
 
