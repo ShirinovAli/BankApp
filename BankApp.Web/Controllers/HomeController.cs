@@ -16,7 +16,7 @@ namespace BankApp.Web.Controllers
         }
         public IActionResult Index()
         {
-            var users = _appUserRepository.GetAllUsers();
+            var users = _appUserRepository.GetAll();
             return View(_appUserMapper.MapToAppUserList(users));
         }
     }

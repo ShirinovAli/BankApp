@@ -31,6 +31,7 @@ namespace BankApp.Web
                 opt.UseSqlServer("server = DESKTOP-AG2E4VK; database = BankDb; integrated security = true;");
             });
 
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IAppUserRepository, AppUserRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAppUserMapper, AppUserMapper>();

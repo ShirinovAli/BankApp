@@ -15,10 +15,19 @@ namespace BankApp.Web.Data.Repositories
         {
             _context = context;
         }
-        public void Create(AppUser appUser)
+        public void Create(Account account)
         {
-            _context.AppUsers.Add(appUser);
+            _context.Set<Account>().Add(account);
             _context.SaveChanges();
+        }
+        public void Remove(Account account)
+        {
+            _context.Set<Account>().Remove(account);
+            _context.SaveChanges();
+        }
+        public List<Account> GetAll()
+        {
+            return _context.Set<Account>().ToList();
         }
     }
 }

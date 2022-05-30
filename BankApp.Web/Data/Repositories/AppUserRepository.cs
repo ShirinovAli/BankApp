@@ -13,9 +13,9 @@ namespace BankApp.Web.Repositories
         {
             _context = context;
         }
-        public List<AppUser> GetAllUsers()
+        public List<AppUser> GetAll()
         {
-            return _context.AppUsers.ToList();
+            return _context.Set<AppUser>().ToList();
         }
         public AppUser GetById(int id)
         {
@@ -23,7 +23,12 @@ namespace BankApp.Web.Repositories
         }
         public void Create(AppUser appUser)
         {
-            _context.AppUsers.Add(appUser);
+            _context.Set<AppUser>().Add(appUser);
+            _context.SaveChanges();
+        }
+        public void Remove(AppUser appUser)
+        {
+            _context.Set<AppUser>().Remove(appUser);
             _context.SaveChanges();
         }
     }

@@ -8,7 +8,7 @@ namespace BankApp.Web.Data.Interfaces
 {
     public interface IAppUserRepository
     {
-        public List<AppUser> GetAllUsers();
+        public List<AppUser> GetAll();
         public AppUser GetById(int id);
         public void Create(AppUser appUser);
     }
