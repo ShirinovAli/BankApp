@@ -8,10 +8,11 @@ namespace BankApp.Web.Data.Interfaces
     public interface IGenericRepository<T>
         where T : class, new()
     {
-        public void Create(T entity);
-        public void Remove(T entity);
-        public void Update(T entity);
-        public List<T> GetAll();
-        public T GetById(object id);
+        void Create(T entity);
+        void Remove(T entity);
+        void Update(T entity);
+        List<T> GetAll();
+        T GetById(object id);
+        IQueryable<T> GetQueryable();
     }
 }

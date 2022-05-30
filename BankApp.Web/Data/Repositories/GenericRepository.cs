@@ -12,6 +12,11 @@ namespace BankApp.Web.Data.Repositories
     {
         private readonly BankContext _context;
 
+        public IQueryable<T> GetQueryable() 
+        {
+            return _context.Set<T>().AsQueryable();
+        }
+
         public GenericRepository(BankContext context)
         {
             _context = context;
@@ -20,17 +25,14 @@ namespace BankApp.Web.Data.Repositories
         public void Create(T entity)
         {
             _context.Set<T>().Add(entity);
-            _context.SaveChanges();
         }
         public void Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
-            _context.SaveChanges();
         }
         public void Update(T entity)
         {
             _context.Set<T>().Update(entity);
-            _context.SaveChanges();
         }
         public List<T> GetAll()
         {
